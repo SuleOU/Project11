@@ -1,0 +1,29 @@
+Before Trigger:
+Validation error 
+update the records ›which are being updated /inserted
+we don't even have to use DMLto update the fiels on same records
+// any other small running operation where we do not need id
+update the record which is being inserted or updated
+same record update
+
+after triger:
+if there are any DML(s), to insert /update any related records
+if ID required while updateting and inserting
+Any long running process are done in after
+we can add validation error but it is not recomended 
+
+in delete opp
+-triger.new and triger.newmap are not allowed
+-triger.old and trigeroldmap are allowed
+
+*//addError is allowed in trigger.new -> true for insert And Update.
+        //for delete addError is allowed in trigger.old ONLY
+
+        Governer Limit
+what is multi-tenant?:one server instance will be shared by multiple clients.Also tanent of one client is secure and isalated from other group or clients
+Governer limits are limits enforsed by Apex
+Everybody 
+https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_apexgov.htm
+
+Test SetUp
+--we create common data or all the data in testsetup method and we can use those data in all the methods of that test class

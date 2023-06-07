@@ -1,0 +1,24 @@
+Invocable method annotation to identfy 
+Invocable method:can be static and public or global
+only one method in class can have Invocable method annotation
+other annotation can not be used with Invocable method
+unit test:
+-we must create ONE Test calss per class or trigger
+-naming: append "Test" after class name or trigger name
+--we need to put @isTest annotation
+@isTest
+public class Calculator16Test {
+    
+}
+--test method can not accept any parameter
+--test method can be static 
+--can be public private
+--it can be only void type
+--you need to put annotation top of the calss and top of the method and WE NEED TO PUT TOP OF METHOD
+--each method gets FULL Governer Limits which is 150 DML,100 soql,10K record to update 
+
+//testsetup
+what ever happen in the method in test set up original data will not change
+
+--if you write @istest(seealldata=true)  with this way you can create data in data in org
+--  @testvisible annotation makes private method visiable

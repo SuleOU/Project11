@@ -1,0 +1,88 @@
+synchronize and asynchronize
+
+future method:
+* it should be static method
+* future method can not call another future method
+* fture method can not take object as aparameter that is why we cab put parameter as set<id> set and we can call method by keySet()
+EmployeeTriggerHandler.futureMethod1(Trigger.newMap.keySet());
+Async Alex:
+Running behidn the scenes
+
+*future method can increase governor limit for soql
+* WE USE FOR LONG RUNNING EXECUTING
+* WE HAVE DIFFERNT DEBUG METHOD 
+* future method makes run our code at the same time 
+* future method can only be void type
+* *****future method always should have @Test.StartTest(); @Test.STOPTest()**88
+
+
+
+----------00---------00-------------
+Async Apex
+    - Running behind the scenes.
+    - 4 types.
+        - future, batch, queueable, schedulable
+
+Future
+    - @future -- annotate method with this annotation
+    - static. 
+    - void only (nothing returns)
+    - parameters? 
+        - no sObject. No list<sObject>
+        - only primitive, or collection of primitive datatype
+        how many parameters we can have in future method? (trick)
+            - any number
+            - ideal is less than 6 (for any method)
+    - cannot call future method from future method (directly or indirectly)
+        - inserting department
+            - department Trigger
+                - department handler future method
+                    -insert employee
+                        - Employee trigger execution
+                            - calling another future method
+
+Test Future
+    - startTest and StopTest are mandatory.
+
+Interface
+    - What? methods in interface does not have any body (just method signature)
+    - Method cannot be implemented in interface.
+    - Class implements interfaces
+        - the implemntor class MUST implement all the methods declared in interface.
+
+Batch apex:
+    - Why? why?
+        - want to update huge number of records we use batch.
+        - not only records, it can be any other limits
+            - ex: 10k records to update max. 10 sec CPU time. 6 MB heap size
+            - 50k update
+                - write a batch. 5k record at once. 10 times batch execution.
+            - 1000 records -> it is consuming 3 mins
+                - Process 200 records at a time.
+    - Database.batchabe is interface
+            ex 
+                 - 1000 records -> it is consuming 3 mins
+                - Process 200 records at a time.
+        - start
+            - run only when batch starts. we do soql query here.
+        - execute
+            - 5 times execution. For each 200 records execute will execute.
+                - if one of them fails, others can be successful.
+                - new gov limits for each execution.
+        - finish
+            - executes at the end. Only Once.
+
+
+            queable ;
+            IT HAS SOME ADVANCE COMPARE TO FUTURE methods
+            Future methods:
+            getting ID for your job--moniter the progress
+            we can use non primative types
+            unlike future we can call quable from anothet quable 
+            execuate method is mendetory
+
+          quable Unit Test
+          -prepare datatypeexecute between startTest and StopTest  
+
+          database.statefull
+          reatins value of all execuatiom through batch execuation
