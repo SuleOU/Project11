@@ -6,6 +6,7 @@ trigger ContactTrigger on Contact (before insert, after insert,before update, af
       if(trigger.isAfter){
         if(trigger.isInsert || trigger.isUndelete){
             TriggerContactHandler.InsertContact(trigger.new);
+            TriggerContactHandler.validate2(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
         }
       }
 

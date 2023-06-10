@@ -22,7 +22,11 @@ public class TriggerContactHandler { public static void validate1(List<contact> 
    public static void validate2(List<contact> cTriggerNew, List<contact> cTriggerOld, Map<id, contact> cTriggerNewmap, map<id, contact> cTriggerOldMap){
           for(contact c:cTriggerNew){
             if(c.LeadSource!=cTriggerOldMap.get(c.Id).LeadSource){
-                c.LeadSource.addError('Can not update lead sources');
+               //c.LeadSource.addError('Can not update lead sources');
+               c.LeadSource.addError(System.label.ContactValidation2);
+               //how to access custom label in apex?
+                    //system.label.labelName
+                   // c.LeadSource.addError.(System.label.ContactValidation2);
             }
           }
    }

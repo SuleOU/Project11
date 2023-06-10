@@ -17,4 +17,6 @@ List<account> listAcc = new list<account>{
             
           }
       
-       
+       List<database.SaveResult> r2 = database.update(l2, false);
+       list<database.DeleteResult> r3 = database.delete(lids, false);
+       list<database.UndeleteResult> r4 = database.undelete(lids, false);
