@@ -35,4 +35,18 @@ public  class AccountTriggerUnitTest {
         assert.areEqual(3, getAccounts4.size());
 
    }
+   @isTest
+   private static void testDelete(){
+    List<account> listAcc = new list<account>{
+            new account(name = 'May', phone = '7775556666', Industry = 'Energy'),
+            new account(name = 'June'),
+            new account(name = 'Sunday', Industry = 'Energy',active__c='Yes')
+        };
+        insert listAcc;
+      try {
+        delete listAcc;
+      }catch( DmlException de){
+        Assert.isTrue(de.getMessage().contains('Cannot delete active account'));
+      }
+   }
 }
